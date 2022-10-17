@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/MagoSpriteSheet.png" type="Texture" id=2]
+[ext_resource path="res://Characters/PlayerMage.gd" type="Script" id=3]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[node name="PlayerMage" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Stats" parent="." index="0"]
+character = "PlayerMage"
+health = 5
+maxHealth = 5
+speed = 125.0
+attackML = "poisonBullet"
+attackMR = "fearBullet"
+mlRate = 4.0
+mrRate = 4.0
+bqRate = 3.0
+movSpeed = 400.0
+movRange = 100.0
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )
+
+[node name="AnimationTree" parent="." index="4"]
+parameters/playback = SubResource( 1 )
+
+[editable path="Hurtbox"]
